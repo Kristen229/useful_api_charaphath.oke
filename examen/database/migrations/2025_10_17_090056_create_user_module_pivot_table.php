@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('user_modules', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('module_id')->constrained();
+            $table->string('activate');
+        });
     }
 
     /**
@@ -19,6 +23,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('user_modules');
     }
 };
+
+
+
+        
+          
+
